@@ -153,85 +153,36 @@ RPN::getResult() const
 }	// RPN::getResult
 
 
-/* BigNumError */
-RPN::BigNumError::BigNumError()
+RPN::BigNumError::BigNumError() :
+	std::runtime_error("Only single digits may be passed")
 {}
 
 
-const char*
-RPN::BigNumError::what()
-{
-	return "Only single digits may be passed";
-}	// BigNumError::what
-
-
-/* NegativeNumError */
-RPN::NegativeNumError::NegativeNumError()
+RPN::NegativeNumError::NegativeNumError() :
+	std::runtime_error("Negative numbers are not allowed")
 {}
 
 
-const char*
-RPN::NegativeNumError::what()
-{
-	return "Negative numbers are not allowed";
-}	// NegativeNumError::what
-
-
-/* MissingSpaceError */
-RPN::MissingSpaceError::MissingSpaceError()
+RPN::MissingSpaceError::MissingSpaceError() :
+	std::runtime_error("All operand and operator must be separated by at least one space")
 {}
 
 
-const char*
-RPN::MissingSpaceError::what()
-{
-	return "All operand and operator must be separated by at least one space";
-}	// MissingSpaceError::what
-
-
-/* NotEnoughOperands */
-RPN::NotEnoughOperands::NotEnoughOperands()
+RPN::NotEnoughOperands::NotEnoughOperands() :
+	std::runtime_error("Not enought operands on the stack")
 {}
 
 
-const char*
-RPN::NotEnoughOperands::what()
-{
-	return "Not enought operands on the stack";
-}	// NotEnoughOperands::what
-
-
-/* DivideByZero */
-RPN::DivideByZero::DivideByZero()
+RPN::DivideByZero::DivideByZero() :
+	std::runtime_error("Division by zero")
 {}
 
 
-const char*
-RPN::DivideByZero::what()
-{
-	return "Division by zero";
-}	// DivideByZero::what
-
-
-/* EmptyStack */
-RPN::EmptyStack::EmptyStack()
+RPN::EmptyStack::EmptyStack() :
+	std::runtime_error("The stack is empty")
 {}
 
 
-const char*
-RPN::EmptyStack::what()
-{
-	return "The stack is empty";
-}	// EmptyStack::what
-
-
-/* UnfinishedCalculation */
-RPN::UnfinishedCalculation::UnfinishedCalculation()
+RPN::UnfinishedCalculation::UnfinishedCalculation() :
+	std::runtime_error("The stack is empty")
 {}
-
-
-const char*
-RPN::UnfinishedCalculation::what()
-{
-	return "The stack is empty";
-}	// UnfinishedCalculation::what

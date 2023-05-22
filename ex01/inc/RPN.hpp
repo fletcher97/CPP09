@@ -2,6 +2,7 @@
 #define RPN_HPP
 
 #include <stack>
+#include <stdexcept>
 #include <string>
 
 class RPN
@@ -33,71 +34,57 @@ public:
 
 
 	class BigNumError :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		BigNumError();
-
-		virtual const char* what();
 	};	// class BigNumError
 
 
 	class NegativeNumError :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		NegativeNumError();
-
-		virtual const char* what();
 	};	// class NegativeNumError
 
 
 	class MissingSpaceError :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		MissingSpaceError();
-
-		virtual const char* what();
 	};	// class MissingSpaceError
 
 
 	class NotEnoughOperands :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		NotEnoughOperands();
-
-		virtual const char* what();
 	};	// class NotEnoughOperands
 
 
 	class DivideByZero :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		DivideByZero();
-
-		virtual const char* what();
 	};	// class DivideByZero
 
 
 	class EmptyStack :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		EmptyStack();
-
-		virtual const char* what();
 	};	// class EmptyStack
 
 	class UnfinishedCalculation :
-		public std::exception
+		public std::runtime_error
 	{
 public:
 		UnfinishedCalculation();
-
-		virtual const char* what();
 	};	// class UnfinishedCalculation
 };	// class RPN
 
